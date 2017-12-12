@@ -17,4 +17,7 @@ shells: bash sh zsh
 vim:
 	install -o ${USER} -g ${GROUP} -m 0644 .vimrc ${HOMEDIR}/.vimrc
 
-all: shells vim
+ex:
+	install -o ${USER} -g ${GROUP} -m 0644 .exrc ${HOMEDIR}/.exrc
+
+all: shells vim ex
