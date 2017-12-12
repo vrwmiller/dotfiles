@@ -30,7 +30,7 @@ if env tty > /dev/null; then
    esac
 
    # Conditionally load the ssh environment
-   if [ -f "{SSH_ENV}" ]; then
+   if [ -e "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
      ps ${SSH_AGENT_PID}
    else
