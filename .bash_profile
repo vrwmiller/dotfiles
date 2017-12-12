@@ -29,10 +29,10 @@ if env tty > /dev/null; then
       *) export PS1="\u@\h \w $ ";;
    esac
 
-   # Conditionally load the ssh environment
+   # Conditionally load and/or initialize the ssh environment
    if [ -e "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
-     ps ${SSH_AGENT_PID}
+     ps ${SSH_AGENT_PID} || sshagent_start
    else
       sshagent_start
    fi
