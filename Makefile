@@ -1,7 +1,7 @@
 USER=demo
 GROUP=demo
 HOME=/home
-HOMEDIR="${HOME}/${USER}"
+HOMEDIR=${HOME}/${USER}
 
 bash:
 	install -o ${USER} -g ${GROUP} -m 0644 .bash_profile ${HOMEDIR}/.bash_profile
