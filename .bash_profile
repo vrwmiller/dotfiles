@@ -7,7 +7,7 @@ EDITOR=vi
 CHILD=`whoami`
 PARENT=`who am i | awk '{print $1}'`
 HISTSIZE=100000
-HISTFILE="${HOME}/.bash_history-for-${PARENT}-as-${CHILD}
+HISTFILE="${HOME}/.bash_history-for-${PARENT}-as-${CHILD}"
 SSH_ENV="${HOME}/.ssh/environment"
 
 export PATH EDITOR CHILD PARENT HISTSIZE HISTFILE
