@@ -73,7 +73,7 @@ if env tty > /dev/null; then
    # Set user prompt
    export PS1="${USER}@\h \$ "
 
-   # Conditionally load and/or initializa the ssh environment
+   # Conditionally load and/or initialize the ssh environment
    if ! sshenv_validate; then
       sshagent_start
    else
