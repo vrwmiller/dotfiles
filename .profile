@@ -57,7 +57,7 @@ extract()
       echo "Missing argument: filename"
       return 1
    else
-      echo "Unable to extract $1: Undefined extractor"
+      echo "Unable to extract $1"
       return 1
    fi
 
