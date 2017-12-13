@@ -51,7 +51,10 @@ extract()
          *.tar)                  extracter="tar xf"       ;;
          *.zip)                  extracter="unzip"        ;;
          *.Z)                    extracter="uncompress"   ;;
-         *)                      echo "Undefined extracter for: $1" ;;
+         *)
+            echo "Undefined extracter for: $1"
+            return 1
+            ;;
       esac
    elif [ -z $1 ]; then
       echo "Missing argument: filename"
