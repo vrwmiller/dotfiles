@@ -21,11 +21,11 @@ sshagent_start()
    /usr/bin/ssh-add -l
 }
 
-# sshenv_verify looks for, sources, and validates the ssh environment, if
+# sshenv_validate looks for, sources, and validates the ssh environment, if
 # applicable. It is applicable when SSH_ENV is set and exists on the filesystem.
 #
 # Return 0 if the PID is running and non-zero otherwise.
-sshenv_verify()
+sshenv_validate()
 {
    if [ -f "${SSH_ENV}" ]; then
       echo "Verifying SSH_ENV..."
@@ -44,7 +44,7 @@ if env tty > /dev/null; then
    export PS1="${USER}@\h \$ "
 
    # Conditionally load and/or initializa the ssh environment
-   if ! sshenv_verify; then
+   if ! sshenv_validate; then
       sshagent_start
    else
       echo "ssh-agent has the following identities:"
