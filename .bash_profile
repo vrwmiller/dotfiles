@@ -4,9 +4,13 @@ set -o vi
 # Set variables
 PATH="${PATH}:/usr/local/bin:${HOME}/bin"
 EDITOR=vi
+CHILD=`whoami`
+PARENT=`who am i | awk '{print $1}'`
+HISTSIZE=100000
+HISTFILE="${HOME}/.bash_history-for-${PARENT}-as-${CHILD}
 SSH_ENV="${HOME}/.ssh/environment"
 
-export PATH EDITOR
+export PATH EDITOR CHILD PARENT HISTSIZE HISTFILE
 
 # Functions
 
