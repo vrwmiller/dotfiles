@@ -25,7 +25,7 @@ sshagent_start()
 if env tty > /dev/null; then
 
    # Set user prompt
-   export PS1="${USER}@\h ${PWD} \$ "
+   export PS1="${USER}@\h \$ "
 
    # Conditionally load and/or initializa the ssh environment
    if [ -f "${SSH_ENV}" ]; then
