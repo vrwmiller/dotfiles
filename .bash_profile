@@ -96,3 +96,6 @@ if env tty > /dev/null; then
    fi
 
 fi
+
+# Source the local config, if any
+[ -f .bash_profile.local ] && . .bash_profile.local

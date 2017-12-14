@@ -85,3 +85,6 @@ if env tty > /dev/null; then
    fi
 
 fi
+
+# Source the local config, if any
+[ -f .profile.local ] && . .profile.local
