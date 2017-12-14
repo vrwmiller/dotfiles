@@ -1,6 +1,12 @@
 # Set vi-style key bindings
 set -o vi
 
+# Aliases
+alias gs='git status'
+alias gd='git diff'
+alias gb='git branch'
+alias gc='git checkout'
+
 # Set variables
 PATH="${PATH}:/usr/local/bin:${HOME}/bin"
 EDITOR=vi
@@ -46,7 +52,10 @@ extract()
 {
    local extracter
 
-   if [ -f $1 ]; then
+   if [ -z $1 ]; then
+      echo "Missing argument: filename"
+      return 1
+   elif [ -f $1 ]; then
       case $1 in
          *.tar.gz|*.tgz)         extracter="tar xzf"      ;;
          *.tar.bz2|*.tbz[2])     extracter="tar xjf"      ;;
@@ -60,9 +69,6 @@ extract()
             return 1
             ;;
       esac
-   elif [ -z $1 ]; then
-      echo "Missing argument: filename"
-      return 1
    else
       echo "Unable to extract $1"
       return 1
