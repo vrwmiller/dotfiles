@@ -1,5 +1,5 @@
-USER=demo
-GROUP=demo
+USER=$$(id -un)
+GROUP=$$(id -gn)
 HOME=/home
 HOMEDIR=${HOME}/${USER}
 
