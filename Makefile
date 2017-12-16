@@ -1,23 +1,22 @@
 USER=$$(id -un)
 GROUP=$$(id -gn)
-HOME=/home
-HOMEDIR=${HOME}/${USER}
+HOME=$${HOME}
 
 bash:
-	install -o ${USER} -g ${GROUP} -m 0644 .bash_profile ${HOMEDIR}/.bash_profile
+	install -o ${USER} -g ${GROUP} -m 0644 .bash_profile ${HOME}
 
 sh:
-	install -o ${USER} -g ${GROUP} -m 0644 .profile ${HOMEDIR}/.profile
+	install -o ${USER} -g ${GROUP} -m 0644 .profile ${HOME}
 
 zsh:
-	install -o ${USER} -g ${GROUP} -m 0644 .zshrc ${HOMEDIR}/.zshrc
+	install -o ${USER} -g ${GROUP} -m 0644 .zshrc ${HOME}
 
 shells: bash sh zsh
 
 vim:
-	install -o ${USER} -g ${GROUP} -m 0644 .vimrc ${HOMEDIR}/.vimrc
+	install -o ${USER} -g ${GROUP} -m 0644 .vimrc ${HOME}
 
 ex:
-	install -o ${USER} -g ${GROUP} -m 0644 .exrc ${HOMEDIR}/.exrc
+	install -o ${USER} -g ${GROUP} -m 0644 .exrc ${HOME}
 
 all: shells vim ex
