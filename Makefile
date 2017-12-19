@@ -1,9 +1,8 @@
 USER=$$(id -un)
 GROUP=$$(id -gn)
-HOME=$${HOME}
 
 bash:
-	install -o ${USER} -g ${GROUP} -m 0644 .bash_profile ${HOME}
+	install -o ${USER} -g ${GROUP} -m 0644 .bash_profile $(HOME)
 
 sh:
 	install -o ${USER} -g ${GROUP} -m 0644 .profile ${HOME}
