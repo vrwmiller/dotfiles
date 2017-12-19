@@ -1,13 +1,16 @@
 GROUP=$$(id -gn)
 
-bash:
+bash: aliases
 	install -o $(USER) -g ${GROUP} -m 0644 .bash_profile $(HOME)
 
-sh:
+sh: aliases
 	install -o $(USER) -g ${GROUP} -m 0644 .profile $(HOME)
 
 zsh:
 	install -o $(USER) -g ${GROUP} -m 0644 .zshrc $(HOME)
+
+aliases:
+	install -o $(USER) -g ${GROUP} -m 0644 aliases.sh $(HOME)
 
 shells: bash sh zsh
 

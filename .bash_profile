@@ -2,10 +2,7 @@
 set -o vi
 
 # Aliases
-alias gs='git status'
-alias gd='git diff'
-alias gb='git branch'
-alias gc='git checkout'
+[ -f aliases.sh ] && . aliases.sh
 
 # Set variables
 PATH="${PATH}:/usr/local/bin:${HOME}/bin"

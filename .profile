@@ -1,6 +1,9 @@
 # Set vi-style key bindings
 set -o vi
 
+# Aliases
+[ -f aliases.sh ] && . aliases.sh
+
 # Variables
 PATH="${PATH}:/usr/local/bin:${HOME}/bin"
 EDITOR=vi
