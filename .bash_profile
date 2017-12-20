@@ -44,7 +44,7 @@ sshenv_validate()
 }
 
 # Extract compressed files with a single command
-# https://github.com/leolanese/bash_profile/blob/master/bash_profile
+# https://github.com/leolanese/bash_profile
 extract()
 {
    local extracter
