@@ -10,6 +10,9 @@ bindkey -v
 # Shell prompt
 PROMPT="%n@%m %1~ $ "
 
+# source local environment
+[ -f .zshrc.local ] && source .zshrc.local
+
 # source aliases
 [ -f aliases.sh ] && source aliases.sh
 

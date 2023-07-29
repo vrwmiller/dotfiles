@@ -19,3 +19,4 @@ alias gcb='git checkout -b'
 alias c='clear'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias tf='/opt/homebrew/bin/terraform'
+alias temple="ssh -p ${SSHPORT} temple.hostileadmin.com"
