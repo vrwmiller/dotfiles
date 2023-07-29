@@ -17,5 +17,5 @@ PROMPT="%n@%m %1~ $ "
 [ -f aliases.sh ] && source aliases.sh
 
 # Display available ssh keys
-echo "--> Available ssh keys:"
+echo "--> Available ssh keys"
 ssh-add -l
