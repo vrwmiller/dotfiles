@@ -9,3 +9,6 @@ bindkey -v
 
 # Shell prompt
 PROMPT="%n@%m %1~ $ "
+
+# source aliases
+[ -f aliases.sh ] && source aliases.sh
