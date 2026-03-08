@@ -11,10 +11,10 @@ bindkey -v
 PROMPT="%n@%m %1~ $ "
 
 # source local environment
-[ -f .zshrc.local ] && source .zshrc.local
+[ -f "${HOME}/.zshrc.local" ] && source "${HOME}/.zshrc.local"
 
 # source aliases
-[ -f aliases.sh ] && source aliases.sh
+[ -f "${HOME}/aliases.sh" ] && source "${HOME}/aliases.sh"
 
 # SSH agent management
 SSH_ENV="${HOME}/.ssh/environment"
@@ -32,7 +32,7 @@ sshenv_validate() {
   if [ -f "${SSH_ENV}" ]; then
     echo "Verifying SSH_ENV..."
     . "${SSH_ENV}" > /dev/null
-    ps ${SSH_AGENT_PID} > /dev/null
+    kill -0 ${SSH_AGENT_PID} 2>/dev/null
     return $?
   fi
   return 1
