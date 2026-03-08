@@ -1,12 +1,39 @@
 # dotfiles
 
-> Note: This repository's contents are governed by the MIT license except where
-> otherwise noted.
+Personal shell configuration and dotfiles for macOS and UNIX-like systems.
 
-Copyright 2017-2018 vmiller at hostileadmin dot com
+## Contents
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+| File | Description |
+|------|-------------|
+| `aliases.sh` | Shell aliases shared across bash/sh/zsh |
+| `.bash_profile` | Bash login shell config (sources `aliases.sh`) |
+| `.profile` | POSIX sh login shell config (sources `aliases.sh`) |
+| `.zshrc` | Zsh config (sources `aliases.sh`) |
+| `.vimrc` | Vim configuration |
+| `.exrc` | ex/vi configuration |
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+> Note: Shell config files (`.bash_profile`, `.profile`, `.zshrc`, `.vimrc`, `.exrc`) are managed locally and not tracked in this repository.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## Installation
+
+Uses `make` to install files into `$HOME` with correct ownership and permissions.
+
+```bash
+# Install everything (all shells + vim + ex)
+make all
+
+# Install for a specific shell only
+make bash   # installs .bash_profile + aliases.sh
+make zsh    # installs .zshrc
+make sh     # installs .profile + aliases.sh
+
+# Install individual components
+make aliases  # installs aliases.sh only
+make vim      # installs .vimrc
+make ex       # installs .exrc
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
