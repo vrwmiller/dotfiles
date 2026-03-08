@@ -2,7 +2,7 @@
 set -o vi
 
 # Aliases
-[ -f aliases.sh ] && . aliases.sh
+[ -f "${HOME}/aliases.sh" ] && . "${HOME}/aliases.sh"
 
 # Set variables
 PATH="${PATH}:/usr/local/bin:${HOME}/bin"
@@ -12,7 +12,7 @@ PARENT=`who am i | awk '{print $1}'`
 HISTSIZE=100000
 SSH_ENV="${HOME}/.ssh/environment"
 
-export PATH EDITOR CHILD PARENT HISTSIZE
+export PATH EDITOR CHILD PARENT HISTSIZE SSH_ENV
 
 # Functions
 
@@ -36,7 +36,7 @@ sshenv_validate()
    if [ -f "${SSH_ENV}" ]; then
       echo "Verifying SSH_ENV..."
       . "${SSH_ENV}" > /dev/null
-      ps ${SSH_AGENT_PID} > /dev/null
+      kill -0 ${SSH_AGENT_PID} 2>/dev/null
       return $?
    fi
 
@@ -44,7 +44,7 @@ sshenv_validate()
 }
 
 # Do these things when we have a tty
-if env tty > /dev/null; then
+if [ -t 1 ]; then
 
    # Set user prompt; This is bash specific and may not work with other shells
    case `id -u` in
@@ -63,4 +63,4 @@ if env tty > /dev/null; then
 fi
 
 # Source the local config, if any
-[ -f .bash_profile.local ] && . .bash_profile.local
+[ -f "${HOME}/.bash_profile.local" ] && . "${HOME}/.bash_profile.local"

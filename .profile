@@ -2,14 +2,14 @@
 set -o vi
 
 # Aliases
-[ -f aliases.sh ] && . aliases.sh
+[ -f "${HOME}/aliases.sh" ] && . "${HOME}/aliases.sh"
 
 # Variables
 PATH="${PATH}:/usr/local/bin:${HOME}/bin"
 EDITOR=vi
 SSH_ENV="${HOME}/.ssh/environment"
 
-export PATH EDITOR
+export PATH EDITOR SSH_ENV
 
 # Functions
 
@@ -33,7 +33,7 @@ sshenv_validate()
    if [ -f "${SSH_ENV}" ]; then
       echo "Verifying SSH_ENV..."
       . "${SSH_ENV}" > /dev/null
-      ps ${SSH_AGENT_PID} > /dev/null
+      kill -0 ${SSH_AGENT_PID} 2>/dev/null
       return $?
    fi
 
@@ -41,7 +41,7 @@ sshenv_validate()
 }
 
 # Do these things when we have a tty
-if env tty > /dev/null; then
+if [ -t 1 ]; then
 
    # Set user prompt
    export PS1="${USER}@\h \$ "
@@ -57,4 +57,4 @@ if env tty > /dev/null; then
 fi
 
 # Source the local config, if any
-[ -f .profile.local ] && . .profile.local
+[ -f "${HOME}/.profile.local" ] && . "${HOME}/.profile.local"
