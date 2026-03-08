@@ -43,38 +43,6 @@ sshenv_validate()
    return 1
 }
 
-# Extract compressed files with a single command
-# https://github.com/leolanese/bash_profile
-extract()
-{
-   local extracter
-
-   if [ -z $1 ]; then
-      echo "Missing argument: filename"
-      return 1
-   elif [ -f $1 ]; then
-      case $1 in
-         *.tar.gz|*.tgz)         extracter="tar xzf"      ;;
-         *.tar.bz2|*.tbz[2])     extracter="tar xjf"      ;;
-         *.bz2)                  extracter="bunzip"       ;;
-         *.gz)                   extracter="gunzip"       ;;
-         *.tar)                  extracter="tar xf"       ;;
-         *.zip)                  extracter="unzip"        ;;
-         *.Z)                    extracter="uncompress"   ;;
-         *)
-            echo "Undefined extracter for: $1"
-            return 1
-            ;;
-      esac
-   else
-      echo "Unable to extract $1"
-      return 1
-   fi
-
-   ${extracter} $1
-   return $?
-}
-
 # Do these things when we have a tty
 if env tty > /dev/null; then
 
