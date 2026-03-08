@@ -13,8 +13,6 @@ Personal shell configuration and dotfiles for macOS and UNIX-like systems.
 | `.vimrc` | Vim configuration |
 | `.exrc` | ex/vi configuration |
 
-> Note: Shell config files (`.bash_profile`, `.profile`, `.zshrc`, `.vimrc`, `.exrc`) are managed locally and not tracked in this repository.
-
 ## Installation
 
 Uses `make` to install files into `$HOME` with correct ownership and permissions.
