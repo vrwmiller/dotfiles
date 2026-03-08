@@ -1,1 +1,40 @@
+# Machine-local overrides
 *.local
+
+# macOS
+.DS_Store
+
+# SSH
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
+.ssh/id_ecdsa
+.ssh/id_ecdsa.pub
+.ssh/authorized_keys
+.ssh/known_hosts
+.ssh/environment
+
+# GPG
+*.gpg
+*.asc
+secring.*
+
+# Shell history
+.bash_history
+.zsh_history
+.histfile
+
+# Environment / credentials
+.env
+.envrc
+.netrc
+.aws/
+.docker/config.json
+
+# VS Code — track only shared config files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+
